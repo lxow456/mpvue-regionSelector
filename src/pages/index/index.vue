@@ -2,7 +2,7 @@
   <div>
     <div class="region">{{ province }} / {{ city }} / {{ district }}</div>
     <button @click="handleClick" class="click-btn">click me</button>
-    <region-selector :isShow="selectorShow" province="山东省" city="济南市" district="历下区" @hideSelector="hideSelector"></region-selector>
+    <region-selector :isShow="selectorShow" :province="province" :city="city" :district="district" @hideSelector="hideSelector"></region-selector>
   </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
     hideSelector(info) {
       console.log(info)
       if (info) {
-        [this.province, this.city, this.district] = [info[0].name, info[1].name, info[2].name]
+        [this.province, this.city, this.district] = [info[0].name, info[1].name, info[2].name];
       }
       this.selectorShow = false;
     }
